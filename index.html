@@ -1,0 +1,1135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>洋葱影视</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/shutter.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/search-form.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/shutter.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="src/jquery.bootstrap-autohidingnavbar.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/scripts.js"></script>
+</head>
+
+<body>
+<!-- 头部 -->
+<div class="head">
+	<div class="head_top">
+    	<!-- 导航栏 -->
+        <div class="navigation">
+        	<nav class="navbar navbar-default navbar-fixed-top ">
+    		<div class="container">
+				<ul class="menu">
+					<li><a href="index.html">首页</a></li>
+					<li class="active"><a href="type1.html">电影</a>
+						<ul class="submenu">
+						<li><a href="#">喜剧</a></li>
+						<li><a href="#">科幻</a></li>
+						<li><a href="#">动作</a></li>
+                		<li><a href="#">恐怖</a></li>
+						</ul>
+					</li>
+					<li><a href="#">电视剧</a>
+						<ul class="submenu">
+							<li><a href="#">警匪</a></li>
+							<li><a href="#">悬疑</a></li>
+							<li><a href="#">古装</a></li>
+							<li><a href="#">军旅</a></li>
+						</ul>
+					</li>
+					<li><a href="#">综艺</a>
+        				<ul class="submenu">
+							<li><a href="#">真人秀</a></li>
+							<li><a href="#">美食</a></li>
+							<li><a href="#">情感</a></li>
+							<li><a href="#">生活</a></li>
+						</ul>
+        			</li>
+					<li><a href="#">动漫</a>
+        				<ul class="submenu">
+							<li><a href="#">热血</a></li>
+							<li><a href="#">冒险</a></li>
+							<li><a href="#">校园</a></li>
+						</ul>
+        			</li>
+        			<li><a href="#">关于本站</a></li>
+                    <!-- 搜索框 -->
+                    <div class="search">
+    		<form onsubmit="submitFn(this, event);">
+				<div class="search-wrapper">
+					<div class="input-holder">
+						<input type="text" class="search-input" placeholder="Type to search" />
+						<button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+					</div>
+					<span class="close" onclick="searchToggle(this, event);">
+    				</span>
+					<div class="result-container">
+					</div>
+				</div>
+			</form>
+			<script type="text/javascript">
+        		function searchToggle(obj, evt){
+            	var container = $(obj).closest('.search-wrapper');
+
+            		if(!container.hasClass('active')){
+                 	 container.addClass('active');
+                  	 evt.preventDefault();
+           			}
+           			else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                  	 container.removeClass('active');
+                  	 // clear input
+                  	 container.find('.search-input').val('');
+                  	 // clear and hide result container when we press close
+                  	 container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+            		}
+       		 	}
+
+        		function submitFn(obj, evt){
+            value = $(obj).find('.search-input').val().trim();
+
+            _html = "Yup yup! Your search text sounds like this: ";
+            if(!value.length){
+                _html = "Yup yup! Add some text friend :D";
+            }
+            else{
+                _html += "<b>" + value + "</b>";
+            }
+
+            $(obj).find('.result-container').html('<span>' + _html + '</span>');
+            $(obj).find('.result-container').fadeIn(100);
+
+            evt.preventDefault();
+        	}
+    		</script>
+        </div>
+				</ul>
+			</div>
+            </nav>
+            <!-- 变化导航 -->
+        	<script>
+	  			$(".navbar-fixed-top").autoHidingNavbar();
+			</script>
+        </div>
+    </div>
+    <div class="head_foot">
+        <!-- 图标 -->
+    	<div class="logo_box">
+        	<img src="images/logo.gif">
+        </div>
+        <div class="logo_box2">
+            <img src="images/logo2.jpg">
+        </div>
+        <!-- 注册登录 -->
+        <div class="register">
+        	<div class="user-behavior" areacode="head">
+              <div class="login-con" id="js-login-h">
+                <div class="js-login-d">
+                    <span class="login-register"><a data-type="login" href="javascript:void(0);" class="login-icon"></a><a data-type="login" href="javascript:void(0);" class="btn btn-link-1 launch-modal" data-modal-id="modal-register">登录</a></span>
+                    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-register-label">用户登录</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+	                   <form action="checkLogin.php" method="post">
+	<fieldset>
+		<ul>
+			<li>
+				<label for="">用户名：</label> 
+				<input type="text" name="username"/>
+			</li>
+			<li>
+				<label for="">密 码：</label> 
+				<input type="password" name="password" />
+			</li>
+			<li>
+				<label for="">验证码：</label> 
+				<input type="text" name="captcha" /><br>
+				<img src="code.php" alt="" id="code_img"/> <br> 
+				<a href="#" id="change">看不清，换一张</a>
+			</li>
+			<li>
+				<label for="">&nbsp;</label> 
+				<input type="submit" value="登 录" class="login_btn" />
+                <a href="register.html" target="_blank"><input type="button" value="注 册" class="register_btn" /></a>
+			</li>
+		</ul>
+	</fieldset>		
+	</form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>   
+                </div>
+              </div>
+                 <a id="viewFavoriteButton" class="tit collection" href="javascript:void(0);">收藏</a><a id="viewRecordButton" class="tit viewed" href="javascript:void(0);">看过</a>
+              <!--观看记录 start-->
+              <div style="display:none;" class="hoverBox" id="viewRecordPane">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"> <em class="hoverBox-arrow01"></em>
+                      <div class="his-none" style="display:block;">
+                        <p class="his-none-text">暂时没有您的观看记录</p>
+                        <p class="his-none-tips">您喜欢的影片在这里</p>
+                        <p class="his-none-more"><a target="_blank" href="#" rel="nofollow">点击去看</a></p>
+                      </div>
+                      <div class="his-main" style="display:none;">
+                        <p class="hoverBox-tit">看过</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont his-newcont"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--观看记录面板end-->
+              <!--收藏记录面板start-->
+              <div style="display: none;" class="hoverBox" id="viewFavoritePanel">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"><em class="hoverBox-arrow02"></em>
+                      <div class="his-none" style="">
+                        <p class="his-none-text">您的列表中暂时没有内容</p>
+                        <p class="his-none-pic"></p>
+                        <p class="his-none-more his-none-more-collection"><a target="_blank" href="#" rel="nofollow">您喜欢的影片在这里</a></p>
+                      </div>
+                      <div class="his-main" style="display: none;">
+                        <p class="hoverBox-tit">收藏</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont" areacode="collect"><ul class="clearfix"></ul></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--收藏记录面板end-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容展示 -->
+<div class="middle">
+	<div class="broadcast">
+		<div class="shutter">
+			<div class="shutter-img">
+  				<a href="#" data-shutter-title="死侍2"><img src="images/shutter_3.jpg" alt="#"></a>
+  				<a href="#" data-shutter-title="昼颜"><img src="images/shutter_2.jpg" alt="#"></a>
+  				<a href="#" data-shutter-title="唐人街探案2"><img src="images/shutter_1.jpg" alt="#"></a>
+   				<a href="#" data-shutter-title="美国队长3"><img src="images/shutter_4.jpg" alt="#"></a>
+			</div>
+			<ul class="shutter-btn">
+  				<li class="prev"></li>
+  				<li class="next"></li>
+			</ul>
+			<div class="shutter-desc">
+  				<p>美国队长3</p>
+			</div>
+		</div>
+		<script>
+		$(function () {
+  			$('.shutter').shutter({
+			shutterW: 1180, // 容器宽度
+			shutterH: 418, // 容器高度
+			isAutoPlay: true, // 是否自动播放
+			playInterval: 5000, // 自动播放时间
+			curDisplay: 3, // 当前显示页
+			fullPage: false // 是否全屏展示
+  			});
+		});
+		</script>
+    </div>
+	<div class="show_1">
+    	<div class="series">
+        	<div class="mod_row_box" id="tv_channel">
+	<div class="content-wrap g-clear">
+        <div class="content-left">
+			<div class="p-mod remendy">
+				<div id="tj-hotdy" monitor-desc="最新电视剧">
+					<div class="p-mod-title g-clear">
+						<span class="p-mod-label">最新电视剧</span>
+						<a class="p-mod-more" href="#" target="_blank">更多&gt;</a>
+						<a class="p-mod-desc" href="#" title="言情剧" target="_blank">言情</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" title="都市剧" target="_blank">都市</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" title="青春剧" target="_blank">青春</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" title="偶像剧" target="_blank">偶像</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" title="古装剧" target="_blank">古装</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" title="军旅剧" target="_blank">军旅</a>	                                 
+					</div>
+					<div class="content rmcontent">
+						<ul class="list g-clear w-newfigure-list">
+							
+							<li title="如果，爱DVD版" class="w-newfigure"><a href="play1.html" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/1.jpg" data-original="images/show/1.jpg" alt="如果，爱DVD版" style="display: inline-block;"><span class="w-newfigure-hint">更新至1集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">如果，爱DVD版</span><span class="s2">9.0</span></p>
+								<p class="w-newfigure-desc">张柏芝 吴建豪 倪景阳 徐志贤 张双利 田岷 </p>
+							</div>
+							</a></li>
+							
+							<li title="小李飞刀" class="w-newfigure"><a href="play2.html" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/2.jpg" data-original="images/show/2.jpg" alt="小李飞刀" style="display: inline-block;"><span class="w-newfigure-hint">12集全</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">小李飞刀</span><span class="s2">7.1</span></p>
+								<p class="w-newfigure-desc">焦恩俊、吴京、萧蔷、俞飞鸿</p>
+							</div>
+							</a></li>
+							
+							<li title="锦绣未央" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/3.jpg" data-original="images/show/3.jpg" alt="锦绣未央" style="display: inline-block;"><span class="w-newfigure-hint">更新至38集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">锦绣未央</span><span class="s2">8.6</span></p>
+								<p class="w-newfigure-desc">唐嫣饰  李未央/冯心儿  /罗晋饰  拓跋浚   /吴建豪饰  拓跋余</p>
+							</div>
+							</a></li>
+							
+							<li title="琅琊榜" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/4.jpg" data-original="images/show/4.jpg" alt="琅琊榜"><span class="w-newfigure-hint">10集全</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">琅琊榜</span><span class="s2">6.9</span></p>
+								<p class="w-newfigure-desc">胡歌、刘涛、王凯、黄维德、陈龙、吴磊、高鑫 </p>
+							</div>
+							</a></li>
+							
+							<li title="莽荒纪" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/5.jpg" data-original="images/show/5.jpg" alt="莽荒纪" style="display: inline-block;"><span class="w-newfigure-hint">更新至6集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">莽荒纪</span><span class="s2">6.0</span></p>
+								<p class="w-newfigure-desc">刘恺威 饰  纪宁 /王鸥 饰 余薇/陈亦飞 饰  纪农/少炎农   /张峻宁 饰</p>
+							</div>
+							</a></li>
+							
+							<li title="新包青天" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/6.jpg" data-original="images/show/6.jpg" alt="新包青天" style="display: inline-block;"><span class="w-newfigure-hint">更新至4集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">新包青天</span><span class="s2">7.0</span></p>
+								<p class="w-newfigure-desc">金超群、何家劲、范鸿轩</p>
+							</div>
+							</a></li>
+							
+							<li title="择天记" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/7.jpg" data-original="images/show/7.jpg" alt="择天记" style="display: inline-block;"><span class="w-newfigure-hint">更新至1集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">择天记</span><span class="s2">10.0</span></p>
+								<p class="w-newfigure-desc">鹿晗、古力娜扎、吴倩、曾舜晞、许龄月、张峻宁、高瀚宇、林思</p>
+							</div>
+							</a></li>
+							
+							<li title="武法律师" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/8.jpg" data-original="images/show/8.jpg" alt="武法律师" style="display: inline-block;"><span class="w-newfigure-hint">更新至6集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">武法律师</span><span class="s2">7.2</span></p>
+								<p class="w-newfigure-desc">李准基 徐睿知 李慧英 崔民秀</p>
+							</div>
+							</a></li>
+							
+							<li title="要一起过吗?/一起生活吧" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/9.jpg" data-original="images/show/9.jpg" alt="要一起过吗?/一起生活吧" style="display: inline-block;"><span class="w-newfigure-hint">更新至22集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">要一起过吗?/一起生活吧</span><span class="s2">0.0</span></p>
+								<p class="w-newfigure-desc">李尚禹 韩智慧 柳东根 张美姬</p>
+							</div>
+							</a></li>
+							
+							<li title="东方华尔街" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/10.jpg" data-original="images/show/10.jpg" alt="东方华尔街" style="display: inline-block;"><span class="w-newfigure-hint">更新至2集</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">东方华尔街</span><span class="s2">0.0</span></p>
+								<p class="w-newfigure-desc">吴镇宇 张孝全 余男 陈家乐 江奇霖</p>
+							</div>
+							</a></li>
+							 
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="content-right">
+			<div class="dyside">
+				<div id="tj-dsrank" monitor-desc="电视剧榜" class="content-right">
+					<div class="p-mod rank">
+						<div class="p-mod-title g-clear">
+							<span class="p-mod-label">电视剧榜</span>
+						</div>
+						<div class="content rank-content">
+							<ul class="rank-list g-clear">
+								
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num top3">1</span>
+									<a title="玄门大师" href="#" target="_blank" class="name">玄门大师</a>
+									<span class="vv"><strong>8.7</strong>分</span>
+								</div>
+								</li>
+								
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num top3">2</span>
+									<a title="莽荒纪" href="#" target="_blank" class="name">莽荒纪</a>
+									<span class="vv"><strong>8.1</strong>分</span>
+								</div>
+								</li>
+								
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num top3">3</span>
+									<a title="温暖的弦" href="#" target="_blank" class="name">温暖的弦</a>
+									<span class="vv"><strong>8.9</strong>分</span>
+								</div>
+								</li>
+								 
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">4</span>
+									<a title="神盾局特工第五季" href="#" target="_blank" class="name">神盾局特工第五季</a>
+									<span class="vv"><strong>9.3</strong>分</span>
+								</div>
+								</li>
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">5</span>
+									<a title="余罪第2季" href="#" target="_blank" class="name">余罪第2季</a>
+									<span class="vv"><strong>9.4</strong>分</span>
+								</div>
+								</li>
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">6</span>
+									<a title="余罪第1季" href="#" target="_blank" class="name">余罪第1季</a>
+									<span class="vv"><strong>9.4</strong>分</span>
+								</div>
+								</li>
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">7</span>
+									<a title="天意" href="#" target="_blank" class="name">天意</a>
+									<span class="vv"><strong>8.7</strong>分</span>
+								</div>
+								</li>
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">8</span>
+									<a title="她很漂亮" href="#" target="_blank" class="name">她很漂亮</a>
+									<span class="vv"><strong>9.0</strong>分</span>
+								</div>
+								</li>
+													 
+								<li class="rank-item">
+								<div class="normal-type g-clear">
+									<span class="num">9</span>
+									<a title="泡沫之夏" href="#" target="_blank" class="name">泡沫之夏</a>
+									<span class="vv"><strong>9.1</strong>分</span>
+								</div>
+								</li>
+													 
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="tj-dsfilter" monitor-desc="电视剧筛选" class="content-right">
+					<div class="p-mod rank">
+						<div class="p-mod-title g-clear">
+							<span class="p-mod-label">电视剧筛选</span>
+						</div>
+						<div class="p-filter-main">
+                            <div class="g-clear list">                  
+								<a class="item" href="#" title="言情剧" target="_blank">言情</a>
+								<a class="item" href="#" title="都市剧" target="_blank">都市</a>
+								<a class="item" href="#" title="家庭剧" target="_blank">家庭</a>
+								<a class="item" href="#" title="历史剧" target="_blank">历史</a>
+								<a class="item" href="#" title="武侠剧" target="_blank">武侠</a>
+								<a class="item" href="#" title="青春剧" target="_blank">青春</a>
+								<a class="item" href="#" title="穿越剧" target="_blank">穿越</a>
+								<a class="item" href="#" title="偶像剧" target="_blank">偶像</a>
+								<a class="item" href="#" title="古装剧" target="_blank">古装</a>
+								<a class="item" href="#" title="神话剧" target="_blank">神话</a>
+								<a class="item" href="#" title="军旅剧" target="_blank">军旅</a>
+								<a class="item" href="#" title="警匪剧" target="_blank">警匪</a>
+                                    </div>
+                            <div class="g-clear list">                  
+								<a class="item" href="#" title="大陆电视剧" target="_blank">大陆</a>
+								<a class="item" href="#" title="韩国电视剧" target="_blank">韩剧</a>
+								<a class="item" href="#" title="美国电视剧" target="_blank">美剧</a>
+								<a class="item" href="#" title="香港电视剧" target="_blank">港剧</a>
+								<a class="item" href="#" title="台湾电视剧" target="_blank">台剧</a>
+								<a class="item" href="#" title="日本电视剧" target="_blank">日剧</a>
+								<a class="item" href="#" title="英国电视剧" target="_blank">英剧</a>		  
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+        </div>
+        <div class="rankings">
+        </div>
+    </div>
+    <!-- 背景图片 -->
+    <div class="picture_1">
+    	<header class="paralasic" data-paralasic="1.0">
+		</header>
+    </div>
+    <div class="show_2">
+    	<div class="series">
+        	<div class="mod_row_box" id="dy_channel">
+	<div class="content-wrap g-clear">
+        <div class="content-left">
+            <div class="p-mod remendy">
+				<div id="tj-hotdy" monitor-desc="最新电影">
+					<div class="p-mod-title g-clear">
+						<span class="p-mod-label">最新电影</span>
+						<a class="p-mod-more" href="#" target="_blank">更多&gt;</a>
+                        <a class="p-mod-desc" href="#" title="动作电影" target="_blank">动作</a><span class="p-mod-b">·</span>
+                        <a class="p-mod-desc" href="#" title="喜剧电影" target="_blank">喜剧</a><span class="p-mod-b">·</span>
+                        <a class="p-mod-desc" href="#" title="爱情电影" target="_blank">爱情</a><span class="p-mod-b">·</span>
+                        <a class="p-mod-desc" href="#" title="科幻电影" target="_blank">科幻</a><span class="p-mod-b">·</span>
+                        <a class="p-mod-desc" href="#" title="恐怖电影" target="_blank">恐怖</a><span class="p-mod-b">·</span>
+                        <a class="p-mod-desc" href="#" title="伦理电影" target="_blank">伦理</a>	                             
+					</div>
+					<div class="content rmcontent">
+						<ul class="list g-clear w-newfigure-list">
+							
+							<li title="加勒比海盗5：死无对证" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/11.jpg" data-original="images/show/11.jpg" alt="加勒比海盗5：死无对证"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">加勒比海盗5：死无对证</span><span class="s2">8.6</span></p>
+								<p class="w-newfigure-desc">约翰尼·德普 饰 杰克船长/ 哈维尔·巴登 饰 萨拉查船长/ 
+杰弗里·拉什 饰 巴博萨船长/ Brenton Thwaites 饰</p>
+							</div>
+							</a></li>
+							
+							<li title="全境警戒" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/12.jpg" data-original="images/show/12.jpg" alt="全境警戒"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">全境警戒</span><span class="s2">8.5</span></p>
+								<p class="w-newfigure-desc">戴夫·巴蒂斯塔 饰 Stupe/ 布兰特妮·斯诺 饰 Lucy/
+ Angelic Zambrana 饰 Belinda</p>
+							</div>
+							</a></li>
+							
+							<li title="钢铁侠3" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/13.jpg" data-original="images/show/13.jpg" alt="钢铁侠3"><span class="w-newfigure-hint">抢先</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">钢铁侠3</span><span class="s2">6.0</span></p>
+								<p class="w-newfigure-desc">小罗伯特·唐尼 饰 托尼·斯塔克/ 盖·皮尔斯 饰 阿尔德里奇·基连/ 
+格温妮丝·帕特洛 饰 佩珀·波茨/ 本·金斯利 饰 曼达林</p>
+							</div>
+							</a></li>
+							
+							<li title="终结者4" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/14.jpg" data-original="images/show/14.jpg" alt="终结者4"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">终结者4</span><span class="s2">5.5</span></p>
+								<p class="w-newfigure-desc">克里斯蒂安·贝尔 饰 John Connor/ 萨姆·沃辛顿 饰 Marcus Wright/
+ 穆恩·布拉得古德 饰 Blair Williams/ 海伦娜·邦汉·卡特 饰 Dr. Serena Kogan/ 
+安东·叶利钦 饰 Kyle Reese
+</p>
+							</div>
+							</a></li>
+							
+							<li title="猛鬼街3" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/15.jpg" data-original="images/show/15.jpg" alt="猛鬼街3"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">猛鬼街3</span><span class="s2">5.5</span></p>
+								<p class="w-newfigure-desc">希瑟·兰根坎普/ 克雷格·沃森/ 帕特丽夏·阿奎特/ 罗伯特·英格兰德</p>
+							</div>
+							</a></li>
+							
+							<li title="新铁血战士" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/16.jpg" data-original="images/show/16.jpg" alt="新铁血战士"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">新铁血战士</span><span class="s2">10.0</span></p>
+								<p class="w-newfigure-desc">艾德里安·布洛迪 饰 Royce/ 艾莉丝·布拉加 饰 Isabelle/ 
+丹尼·特乔 饰 Cuchillo/ 托弗·戈瑞斯 饰 Edwin/ 劳伦斯·菲什伯恩 饰 Noland</p>
+							</div>
+							</a></li>
+							
+							<li title="疯狂动物城" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/17.jpg" data-original="images/show/17.jpg" alt="疯狂动物城"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">疯狂动物城</span><span class="s2">7.5</span></p>
+								<p class="w-newfigure-desc">季冠霖 饰 兔朱迪（配音）/ 张震 饰 狐尼克（配音）/ 
+任亚明 饰 狮市长（配音）/ 林兰 饰 羊副市长（配音）/ 冯盛 饰 警局局长</p>
+							</div>
+							</a></li>
+							
+							<li title="捉妖记2" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/18.jpg" data-original="images/show/18.jpg" alt="捉妖记2"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">捉妖记2</span><span class="s2">8.5</span></p>
+								<p class="w-newfigure-desc">梁朝伟 饰 屠四谷/ 白百何 饰 霍小岚/ 井柏然 饰 宋天荫/
+ 李宇春 饰 朱金真/ 杨祐宁 饰 云青</p>
+							</div>
+							</a></li>
+							
+							<li title="逆战" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/19.jpg" data-original="images/show/19.jpg" alt="逆战"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">逆战</span><span class="s2">5.5</span></p>
+								<p class="w-newfigure-desc">周杰伦 饰 万飞/ 谢霆锋 饰 万阳/ 林鹏 饰 简丽珊</p>
+							</div>
+							</a></li>
+							
+							<li title="不二神探" class="w-newfigure"><a href="#" target="_blank">
+							<div class="w-newfigure-imglink g-playicon js-playicon">
+								<img class="loading" src="images/show/20.jpg" data-original="images/show/20.jpg" alt="不二神探"><span class="w-newfigure-hint">高清</span>
+							</div>
+							<div class="w-newfigure-detail">
+								<p class="title g-clear"><span class="s1">不二神探</span><span class="s2">8.6</span></p>
+								<p class="w-newfigure-desc">李连杰 饰 黄飞红/ 文章 饰 王不二/ 刘诗诗 饰 刘金水</p>
+							</div>
+							</a></li>
+							 
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="content-right">
+			<div class="dyside">
+				<div id="tj-dyrank" monitor-desc="电影榜">
+					<div class="p-mod rank">
+						<div class="p-mod-title g-clear">
+							<span class="p-mod-label">电影榜</span>
+						</div>
+						<div class="content rank-content">
+							<ul class="rank-list g-clear">
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">1</span>
+										<a title="复仇者联盟3：无限战争" href="#" target="_blank" class="name">复仇者联盟3：无限战争</a>
+										<span class="vv"><strong>9.2</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">2</span>
+										<a title="雷神3：诸神黄昏" href="#" target="_blank" class="name">雷神3：诸神黄昏</a>
+										<span class="vv"><strong>9.1</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">3</span>
+										<a title="黑豹" href="#" target="_blank" class="name">黑豹</a>
+										<span class="vv"><strong>8.9</strong>分</span>
+									</div>                  
+								</li>
+													 
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">4</span>
+										<a title="超时空同居" href="#" target="_blank" class="name">超时空同居</a>
+										<span class="vv"><strong>8.5</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">5</span>
+										<a title="21克拉" href="#" target="_blank" class="name">21克拉</a>
+										<span class="vv"><strong>9.0</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">6</span>
+										<a title="狂暴巨兽" href="#" target="_blank" class="name">狂暴巨兽</a>
+										<span class="vv"><strong>8.1</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">7</span>
+										<a title="死侍2" href="#" target="_blank" class="name">死侍2</a>
+										<span class="vv"><strong>9.2</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">8</span>
+										<a title="环太平洋：雷霆再起" href="#" target="_blank" class="name">环太平洋：雷霆再起</a>
+										<span class="vv"><strong>8.8</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">9</span>
+										<a title="头号玩家" href="#" target="_blank" class="name">头号玩家</a>
+										<span class="vv"><strong>8.5</strong>分</span>
+									</div>                  
+								</li>
+								 
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="tj-dyfilter" monitor-desc="电影筛选" class="p-filter">
+					<div class="p-mod-title g-clear">
+						<span class="p-mod-label">电影筛选</span>
+					</div>
+					<div class="p-filter-main">
+                        <div class="g-clear list">                  
+							<a class="item" href="#" title="动作电影" target="_blank">动作</a>
+							<a class="item" href="#" title="喜剧电影" target="_blank">喜剧</a>
+							<a class="item" href="#" title="爱情电影" target="_blank">爱情</a>
+							<a class="item" href="#" title="科幻电影" target="_blank">科幻</a>
+							<a class="item" href="#" title="恐怖电影" target="_blank">恐怖</a>
+							<a class="item" href="#" title="剧情电影" target="_blank">剧情</a>
+							<a class="item" href="#" title="战争电影" target="_blank">战争</a>
+							<a class="item" href="#" title="动画电影" target="_blank">动画</a>
+							<a class="item" href="#" title="冒险电影" target="_blank">冒险</a>
+							<a class="item" href="#" title="悬疑电影" target="_blank">悬疑</a>
+							<a class="item" href="#" title="犯罪电影" target="_blank">犯罪</a>
+							<a class="item" href="#" title="灾难电影" target="_blank">灾难</a>
+							<a class="item" href="#" title="武侠电影" target="_blank">武侠</a>
+							<a class="item" href="#" title="警匪电影" target="_blank">警匪</a>
+							<a class="item" href="#" title="历史电影" target="_blank">历史</a>
+							<a class="item" href="#" title="网络电影" target="_blank">网络</a>
+                        </div>
+                        <div class="g-clear list">                  
+							<a class="item" href="#" title="大陆电影" target="_blank">大陆</a>
+							<a class="item" href="#" title="香港电影" target="_blank">香港</a>
+							<a class="item" href="#" title="台湾电影" target="_blank">台湾</a>
+							<a class="item" href="#" title="美国电影" target="_blank">美国</a>			  
+							<a class="item" href="#" title="韩国电影" target="_blank">韩国</a>
+                        </div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+        </div>
+        <div class="rankings">
+        </div>
+    </div>
+    <!-- 背景图片2 -->
+    <div class="picture_2">
+    	<div class="paralasic paralasic-demo" data-paralasic="0.5"></div>
+    </div>
+    <div class="show_3">
+    	<div class="series">
+        	<div class="mod_row_box" id="zy_channel">
+	<div class="content-wrap g-clear">
+		<div class="content-left">
+            <div class="p-mod remendy">
+				<div id="tj-hotdy" monitor-desc="热门综艺">
+					<div class="p-mod-title g-clear">
+						<span class="p-mod-label">热门综艺</span>
+						<a class="p-mod-more" href="#" target="_blank">更多&gt;</a>
+						<a class="p-mod-desc" href="#" target="_blank" title="选秀">选秀</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" target="_blank" title="搞笑">搞笑</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" target="_blank" title="真人秀">真人秀</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" target="_blank" title="脱口秀">脱口秀</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" target="_blank" title="访谈">访谈</a><span class="p-mod-b">·</span>
+						<a class="p-mod-desc" href="#" target="_blank" title="情感">情感</a>	
+					</div>
+					<div class="content rmcontent">
+						<ul class="list g-clear w-newfigure-list">
+							
+							<li title="极限挑战第四季" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/21.png" data-original="images/show/21.png" alt="极限挑战第四季">
+									<span class="w-newfigure-hint">更新至20181024期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">极限挑战第四季</span><span class="s2">9.3</span></p>
+									<p class="w-newfigure-desc">孙红雷 黄磊 张艺兴 王讯</p>
+								</div>
+								</a></li>
+							
+							<li title="奔跑吧第2季" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/22.png" data-original="images/show/22.png" alt="奔跑吧第2季">
+									<span class="w-newfigure-hint">更新至20180525期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">奔跑吧第2季</span><span class="s2">8.6</span></p>
+									<p class="w-newfigure-desc">杨颖 鹿晗 邓超 陈赫</p>
+								</div>
+								</a></li>
+							
+							<li title="欢乐喜剧人" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/23.png" data-original="images/show/23.png" alt="欢乐喜剧人">
+									<span class="w-newfigure-hint">更新至20170909期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">欢乐喜剧人</span><span class="s2">9.0</span></p>
+									<p class="w-newfigure-desc">郭德纲</p>
+								</div>
+								</a></li>
+							
+							<li title="蜜食记" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/24.png" data-original="images/show/24.png" alt="蜜食记">
+									<span class="w-newfigure-hint">更新至20180525期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">蜜食记</span><span class="s2">7.4</span></p>
+									<p class="w-newfigure-desc">汪聪</p>
+								</div>
+								</a></li>
+							
+							<li title="美食小课堂" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/25.png" data-original="images/show/25.png" alt="美食小课堂">
+									<span class="w-newfigure-hint">更新至20160710期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">美食小课堂</span><span class="s2">7.9</span></p>
+									<p class="w-newfigure-desc">张晓文</p>
+								</div>
+								</a></li>
+							
+							<li title="爱情保卫战" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/26.png" data-original="images/show/26.png" alt="爱情保卫战">
+									<span class="w-newfigure-hint">更新至20180211期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">爱情保卫战</span><span class="s2">8.2</span></p>
+									<p class="w-newfigure-desc">赵川</p>
+								</div>
+								</a></li>
+							
+							<li title="朗读者" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/27.png" data-original="images/show/27.png" alt="朗读者">
+									<span class="w-newfigure-hint">更新至20171022期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">朗读者</span><span class="s2">9.5</span></p>
+									<p class="w-newfigure-desc">董卿</p>
+								</div>
+								</a></li>
+							
+							<li title="向往的生活" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/28.png" data-original="images/show/28.png" alt="向往的生活">
+									<span class="w-newfigure-hint">更新至20180528期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">向往的生活</span><span class="s2">9.8</span></p>
+									<p class="w-newfigure-desc">黄磊 刘宪华 彭昱畅</p>
+								</div>
+								</a></li>
+							
+							<li title="金牌调解" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/29.png" data-original="images/show/29.png" alt="金牌调解">
+									<span class="w-newfigure-hint">更新至20180527期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">金牌调解</span><span class="s2">9.5</span></p>
+									<p class="w-newfigure-desc">章亭</p>
+								</div>
+								</a></li>
+							
+							<li title="轻松时刻" class="w-newfigure"><a href="#" target="_blank">
+								<div class="w-newfigure-imglink g-playicon js-playicon">
+									<img class="loading" src="images/show/30.png" data-original="images/show/30.png" alt="轻松时刻">
+									<span class="w-newfigure-hint">更新至20170416期</span>
+								</div>
+								<div class="w-newfigure-detail">
+									<p class="title g-clear"><span class="s1">轻松时刻</span><span class="s2">9.6</span></p>
+									<p class="w-newfigure-desc">yomi 小北</p>
+								</div>
+								</a></li>
+							 
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="content-right">
+            <div class="dyside">
+				<div id="tj-zyrank" monitor-desc="综艺榜">
+					<div class="p-mod rank">
+						<div class="p-mod-title g-clear">
+							<span class="p-mod-label">综艺榜</span>
+						</div>
+						<div class="content rank-content">
+							<ul class="rank-list g-clear">
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">1</span>
+										<a title="极限挑战第二季" href="#" target="_blank" class="name">极限挑战第二季</a>
+										<span class="vv"><strong>7.9</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">2</span>
+										<a title="坑王驾到第2季" href="#" target="_blank" class="name">坑王驾到第2季</a>
+										<span class="vv"><strong>9.5</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num top3">3</span>
+										<a title="中国有嘻哈" href="#" target="_blank" class="name">中国有嘻哈</a>
+										<span class="vv"><strong>9.0</strong>分</span>
+									</div>                  
+								</li>
+								 
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">4</span>
+										<a title="吐槽大会第2季" href="#" target="_blank" class="name">吐槽大会第2季</a>
+										<span class="vv"><strong>8.2</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">5</span>
+										<a title="偶像来了" href="#" target="_blank" class="name">偶像来了</a>
+										<span class="vv"><strong>9.3</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">6</span>
+										<a title="向往的生活" href="#" target="_blank" class="name">向往的生活</a>
+										<span class="vv"><strong>9.6</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">7</span>
+										<a title="极限挑战第四季" href="#" target="_blank" class="name">极限挑战第四季</a>
+										<span class="vv"><strong>9.2</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">8</span>
+										<a title="向往的生活第二季" href="#" target="_blank" class="name">向往的生活第二季</a>
+										<span class="vv"><strong>7.4</strong>分</span>
+									</div>                  
+								</li>
+								
+                                <li class="rank-item">
+									<div class="normal-type g-clear">
+										<span class="num ">9</span>
+										<a title="坑王驾到" href="#" target="_blank" class="name">坑王驾到</a>
+										<span class="vv"><strong>9.5</strong>分</span>
+									</div>                  
+								</li>
+								 
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="tj-zyfilter" monitor-desc="综艺筛选" class="p-filter">
+					<div class="p-mod-title g-clear">
+						<span class="p-mod-label">综艺筛选</span>
+					</div>       
+					<div class="p-filter-main">
+                        <div class="g-clear list">                  
+							<a class="item" href="#" target="_blank" title="选秀">选秀</a>
+							<a class="item" href="#" target="_blank" title="搞笑">搞笑</a>
+							<a class="item" href="#" target="_blank" title="真人秀">真人秀</a>
+							<a class="item" href="#" target="_blank" title="汽车">汽车</a>
+							<a class="item" href="#" target="_blank" title="脱口秀">脱口秀</a>
+							<a class="item" href="#" target="_blank" title="美食">美食</a>
+							<a class="item" href="#" target="_blank" title="旅游">旅游</a>
+							<a class="item" href="#" target="_blank" title="访谈">访谈</a>
+							<a class="item" href="#" target="_blank" title="情感">情感</a>
+							<a class="item" href="#" target="_blank" title="生活">生活</a>
+							<a class="item" href="#" target="_blank" title="纪实">纪实</a>
+							<a class="item" href="#" target="_blank" title="晚会">晚会</a>
+                        </div>
+                        <div class="g-clear list">                  
+							<a class="item" href="#" title="大陆综艺节目" target="_blank">大陆</a>
+							<a class="item" href="#" title="韩国综艺节目" target="_blank">韩国</a>
+							<a class="item" href="#" title="美国综艺节目" target="_blank">美国</a>
+							<a class="item" href="#" title="香港综艺节目" target="_blank">香港</a>
+							<a class="item" href="#" title="台湾综艺节目" target="_blank">台湾</a>
+							<a class="item" href="#" title="日本综艺节目" target="_blank">日本</a>
+							<a class="item" href="#" title="英国综艺节目" target="_blank">英国</a>	  
+                        </div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+        </div>
+        <div class="rankings">
+        </div>
+    </div>
+</div>
+<!-- 回到顶部功能栏 -->
+<div class="toolbar">
+   		<a href="#" class="toolbar-item toolbar-item-weixin">
+   		<span class="toolbar-layer"></span>
+   		</a>
+   		<a href="#" class="toolbar-item toolbar-item-feedback"></a>
+   		<a href="#" class="toolbar-item toolbar-item-app">
+    	<span class="toolbar-layer"></span>
+   		</a>
+   		<a href="javascript:scroll(0,0)" id="top" class="toolbar-item toolbar-item-top"></a>
+</div>
+<!-- 卡片轮播 -->
+<div class="card">
+    	<div class="htmleaf-container">
+			<div class="demo">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-12" style="padding: 1em 0;">
+		                    <div id="news-slider" class="owl-carousel">
+		                        <div class="post-slide">
+		                            <div class="post-img1">
+		                                <a href="#"><img src="images/img-1.jpg" alt=""></a>
+		                            </div>
+		                            <div class="post-content">
+		                                <h3 class="post-title"><a href="#">雷神3</a></h3>
+		                                <p class="post-description">《雷神3：诸神黄昏》是漫威影业出品的一部科幻兼奇幻动作电影，取材自漫威漫画《诸神黄昏》，是漫威电影宇宙的第十七部电影。</p>
+		                            </div>
+		                        </div>
+
+		                        <div class="post-slide">
+		                            <div class="post-img1">
+		                                <a href="#"><img src="images/img-2.jpg" alt=""></a>
+		                            </div>
+		                            <div class="post-content">
+		                                <h3 class="post-title"><a href="#">恶女花魁</a></h3>
+		                                <p class="post-description">《恶女花魁》是由日本Fellah映画制作、Asmik Ace发行的110分钟剧情电影。该片由蜷川实花导演，棚田由纪编剧，土屋安娜、木村佳乃等主演</p>
+		                            </div>
+		                        </div>
+
+		                        <div class="post-slide">
+		                            <div class="post-img1">
+		                                <a href="#"><img src="images/img-3.jpg" alt=""></a>
+		                            </div>
+		                            <div class="post-content">
+		                                <h3 class="post-title"><a href="#">你的名字</a></h3>
+		                                <p class="post-description">《你的名字。》是由新海诚执导，由神木隆之介、上白石萌音担任主要配音的一部原创日本动画电影。</p>
+		                            </div>
+		                        </div>
+
+		                        <div class="post-slide">
+		                            <div class="post-img1">
+		                                <a href="#"><img src="images/img-4.jpg" alt=""></a>
+		                            </div>
+		                            <div class="post-content">
+		                                <h3 class="post-title"><a href="#">归 来</a></h3>
+		                                <p class="post-description">《归来》是2014年张艺谋导演拍摄的剧情文艺电影。该片主要讲述了知识分子陆焉识与妻子冯婉瑜的在大时代际遇下的情感变迁故事。</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#news-slider").owlCarousel({
+                items:3,
+                itemsDesktop:[1199,2],
+                itemsDesktopSmall:[980,2],
+                itemsMobile:[480,1],
+                pagination:false,
+                navigationText:false,
+                autoPlay:true
+            });
+        });
+    	</script>
+</div>
+<!-- 尾部信息 -->
+<div class="foot">
+    <div class="layout">
+           <div class="foot-nav">   
+           <a href="#" target="_blank" title="使用帮助">使用帮助</a>-<a href="#" target="_blank" title="给我留言">给我留言</a>-<a href="#" target="_blank" title="最新更新">最新更新</a>
+			</div>
+			<div class="copyright">
+				<p>本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传</p>
+				<p>若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢！</p>
+				<p>Copyright © 2016-2017 <a href="#">洋葱影视www.XXX.com</a> All Rights Reserved. </p>
+			</div>		
+	</div>
+</div>
+</body>
+</html>

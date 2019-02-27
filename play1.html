@@ -1,0 +1,774 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>如果，爱</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/shutter.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/search-form.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/play.css">
+<link rel="stylesheet" href="css/liuyan.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/shutter.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="src/jquery.bootstrap-autohidingnavbar.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/scripts.js"></script>
+</head>
+
+<body>
+<!-- 头部 -->
+<div class="head">
+	<div class="head_top">
+    	<!-- 导航栏 -->
+        <div class="navigation">
+        	<nav class="navbar navbar-default navbar-fixed-top ">
+    		<div class="container">
+				<ul class="menu">
+					<li><a href="index.html">首页</a></li>
+					<li class="active"><a href="type1.html">电影</a>
+						<ul class="submenu">
+						<li><a href="#">喜剧</a></li>
+						<li><a href="#">科幻</a></li>
+						<li><a href="#">动作</a></li>
+                		<li><a href="#">恐怖</a></li>
+						</ul>
+					</li>
+					<li><a href="#">电视剧</a>
+						<ul class="submenu">
+							<li><a href="#">警匪</a></li>
+							<li><a href="#">悬疑</a></li>
+							<li><a href="#">古装</a></li>
+							<li><a href="#">军旅</a></li>
+						</ul>
+					</li>
+					<li><a href="#">综艺</a>
+        				<ul class="submenu">
+							<li><a href="#">真人秀</a></li>
+							<li><a href="#">美食</a></li>
+							<li><a href="#">情感</a></li>
+							<li><a href="#">生活</a></li>
+						</ul>
+        			</li>
+					<li><a href="#">动漫</a>
+        				<ul class="submenu">
+							<li><a href="#">热血</a></li>
+							<li><a href="#">冒险</a></li>
+							<li><a href="#">校园</a></li>
+						</ul>
+        			</li>
+        			<li><a href="#">关于本站</a></li>
+                    <!-- 搜索框 -->
+                    <div class="search">
+    		<form onsubmit="submitFn(this, event);">
+				<div class="search-wrapper">
+					<div class="input-holder">
+						<input type="text" class="search-input" placeholder="Type to search" />
+						<button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+					</div>
+					<span class="close" onclick="searchToggle(this, event);">
+    				</span>
+					<div class="result-container">
+					</div>
+				</div>
+			</form>
+			<script type="text/javascript">
+        		function searchToggle(obj, evt){
+            	var container = $(obj).closest('.search-wrapper');
+
+            		if(!container.hasClass('active')){
+                 	 container.addClass('active');
+                  	 evt.preventDefault();
+           			}
+           			else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                  	 container.removeClass('active');
+                  	 // clear input
+                  	 container.find('.search-input').val('');
+                  	 // clear and hide result container when we press close
+                  	 container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+            		}
+       		 	}
+
+        		function submitFn(obj, evt){
+            value = $(obj).find('.search-input').val().trim();
+
+            _html = "Yup yup! Your search text sounds like this: ";
+            if(!value.length){
+                _html = "Yup yup! Add some text friend :D";
+            }
+            else{
+                _html += "<b>" + value + "</b>";
+            }
+
+            $(obj).find('.result-container').html('<span>' + _html + '</span>');
+            $(obj).find('.result-container').fadeIn(100);
+
+            evt.preventDefault();
+        	}
+    		</script>
+        </div>
+				</ul>
+			</div>
+            </nav>
+            <!-- 变化导航 -->
+        	<script>
+	  			$(".navbar-fixed-top").autoHidingNavbar();
+			</script>
+        </div>
+    </div>
+    <div class="head_foot">
+        <!-- 图标 -->
+    	<div class="logo_box">
+        	<img src="images/logo.gif">
+        </div>
+        <div class="logo_box2">
+            <img src="images/logo2.jpg">
+        </div>
+        <!-- 注册登录 -->
+        <div class="register">
+        	<div class="user-behavior" areacode="head">
+              <div class="login-con" id="js-login-h">
+                <div class="js-login-d">
+                    <span class="login-register"><a data-type="login" href="javascript:void(0);" class="login-icon"></a><a data-type="login" href="javascript:void(0);" class="btn btn-link-1 launch-modal" data-modal-id="modal-register">登录</a></span>
+                    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-register-label">用户登录</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+	                   <form action="checkLogin.php" method="post">
+	<fieldset>
+		<ul>
+			<li>
+				<label for="">用户名：</label> 
+				<input type="text" name="username"/>
+			</li>
+			<li>
+				<label for="">密 码：</label> 
+				<input type="password" name="password" />
+			</li>
+			<li>
+				<label for="">验证码：</label> 
+				<input type="text" name="captcha" /><br>
+				<img src="code.php" alt="" id="code_img"/> <br> 
+				<a href="#" id="change">看不清，换一张</a>
+			</li>
+			<li>
+				<label for="">&nbsp;</label> 
+				<input type="submit" value="登 录" class="login_btn" />
+                <a href="register.html" target="_blank"><input type="button" value="注 册" class="register_btn" /></a>
+			</li>
+		</ul>
+	</fieldset>		
+	</form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>   
+                </div>
+              </div>
+                 <a id="viewFavoriteButton" class="tit collection" href="javascript:void(0);">收藏</a><a id="viewRecordButton" class="tit viewed" href="javascript:void(0);">看过</a>
+              <!--观看记录 start-->
+              <div style="display:none;" class="hoverBox" id="viewRecordPane">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"> <em class="hoverBox-arrow01"></em>
+                      <div class="his-none" style="display:block;">
+                        <p class="his-none-text">暂时没有您的观看记录</p>
+                        <p class="his-none-tips">您喜欢的影片在这里</p>
+                        <p class="his-none-more"><a target="_blank" href="#" rel="nofollow">点击去看</a></p>
+                      </div>
+                      <div class="his-main" style="display:none;">
+                        <p class="hoverBox-tit">看过</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont his-newcont"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--观看记录面板end-->
+              <!--收藏记录面板start-->
+              <div style="display: none;" class="hoverBox" id="viewFavoritePanel">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"><em class="hoverBox-arrow02"></em>
+                      <div class="his-none" style="">
+                        <p class="his-none-text">您的列表中暂时没有内容</p>
+                        <p class="his-none-pic"></p>
+                        <p class="his-none-more his-none-more-collection"><a target="_blank" href="#" rel="nofollow">您喜欢的影片在这里</a></p>
+                      </div>
+                      <div class="his-main" style="display: none;">
+                        <p class="hoverBox-tit">收藏</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont" areacode="collect"><ul class="clearfix"></ul></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--收藏记录面板end-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容展示 -->
+<div class="middle">
+	<div class="screen">
+    	<div class="p-top-main" id="new_vs_feature" _expose="new_vs_feature">
+   <div class="content-wrap g-clear player-k">
+	<!--右边 开始-->
+		<!--播放器左-->
+		<div id="tj-play" monitor-desc="播放器" class="play-left">
+            <div class="mod-player">
+				<div class="player"><div id="cc1play" style="height:0px; width:0px;display:none;wiidth:100%px;heiight:700px;"></div><iframe id="cciframe" scrolling="no" frameborder="0" allowfullscreen="" width="100%" height="500" src="video/mp.mp4"></iframe> 
+                </div>
+            </div>	
+			<div class="mod-player-cf">
+				<div class="playding">
+					<ul>
+						<li class="cf"><a onclick="return parent.video_jump(-1)" href="javascript:void()">上一集</a></li>
+						<li class="cf"><a onclick="return parent.video_jump(1)" href="javascript:void()">下一集</a></li>
+						<li class="cf"><span id="digg_num">0</span><a href="javascript:viod()" onclick="diggVideo(20391,'digg_num')">顶一下</a></li>
+						<li class="cf"><span id="tread_num">0</span><a href="javascript:viod()" onclick="treadVideo(20391,'tread_num')">踩一下</a></li>
+						<li class="cf"><a href="javascript:viod()" onclick="reportErr(20391)">报 错</a></li>			
+					</ul>
+				</div>
+                <div class="playding-other fn-right">
+					<span class="cf">分享给朋友：</span>
+					<span class="fx">
+						<div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1528692204467">
+							<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+							<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+							<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+							<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+							<a href="#" class="bds_more" data-cmd="more"></a>	
+						</div>
+					</span>
+				</div>
+            </div>	
+		</div>	
+		<!--播放器右 -->		
+	    <div id="tj-play" monitor-desc="播放器" class="play-right">
+
+            <div class="play-right-hd">
+                <ul class="mod_nav_tabs" id="mod_tabs_ul">
+                    <li class="nav_item current">播放列表</li>
+                    <li class="nav_item">相关推荐</li>         
+                </ul>
+			</div>
+			<div class="play-right-bd">
+				<div style="display:block" class="panel_body">
+					<div class="player_header" id="mod_follow_act">
+						<h2 class="player_title">如果，爱<dd>10集全</dd></h2>
+					</div>	
+					<div class="mod_episode" id="mod_episode">			 
+						<div class="play-bfq-hd">
+							<ul class="mod_bfq_tabs" id="mod_bfq_ul">
+							    
+                                <li class="nav_item current">奇艺视频</li>
+                                
+         
+                            </ul>						 
+						</div>					
+						<div class="play-bfq-bd">
+					        
+					        <div style="display:blockdisplay:none" class="panel_body">
+							    <li><a title="第1集" href="#" style="color:red" target="_self">第1集</a></li><li><a title="第2集" href="#" target="_self">第2集</a></li><li><a title="第3集" href="#" target="_self">第3集</a></li><li><a title="第4集" href="#" target="_self">第4集</a></li><li><a title="第5集" href="#" target="_self">第5集</a></li><li><a title="第6集" href="#" target="_self">第6集</a></li><li><a title="第7集" href="#" target="_self">第7集</a></li><li><a title="第8集" href="#" target="_self">第8集</a></li><li><a title="第9集" href="#" target="_self">第9集</a></li><li><a title="第10集" href="#" target="_self">第10集</a></li>
+			                </div>
+						   
+
+						</div>
+					</div>
+				</div>	
+				<!--	第二个tab -->
+				<div style="display:none" class="panel_body">
+					<div class="scroll_fixed">
+		                <div class="goods_tools cf">
+							<a href="#" target="_blank" class="link_cart" _stat="relation-item:cart-link"> “</a><a href="#">马涤尘</a>&nbsp;&nbsp;<a href="#">张向珉</a>&nbsp;&nbsp;<a href="#">王鹏程</a>&nbsp;&nbsp;<a href="#">曹安娜</a>&nbsp;&nbsp;<a href="#"></a>&nbsp;&nbsp;”更多作品<span class="cart_num hl"></span>
+		                </div>
+                    </div>  
+					<div class="scroll_wrap">
+						<div class="mod_relation_goods">
+							<div class="mod_goods_list">
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="一站到底2018"><img alt="一站到底2018" src="http://ww1.sinaimg.cn/mw690/0074Kda4ly1fs6gpzp36vj30cg0iomzr.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="一站到底2018">一站到底2018</a>
+									<div class="goods_price"><span class="price_1">2018</span><span class="price_2"><a href="#">李好</a>&nbsp;<a href="#">郭晓敏</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="蔡徐坤个站"><img alt="蔡徐坤个站" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5j6pklmvj20920dewer.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="蔡徐坤个站">蔡徐坤个站</a>
+									<div class="goods_price"><span class="price_1">2018</span><span class="price_2"><a href="#">未知</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="超人妈妈带娃记"><img alt="超人妈妈带娃记" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5j9f8fxgj206408kaa1.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="超人妈妈带娃记">超人妈妈带娃记</a>
+									<div class="goods_price"><span class="price_1">2016</span><span class="price_2"><a href="#">未知</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="梨园春"><img alt="梨园春" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5h6ws82pj203c04q0t4.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="梨园春">梨园春</a>
+									<div class="goods_price"><span class="price_1">2012</span><span class="price_2"><a href="#">小龙</a>&nbsp;<a href="#">庞晓</a>&nbsp;<a href="#">朱冰</a>&nbsp;<a href="#">诚诚</a>&nbsp;<a href="#">张庆</a>&nbsp;<a href="#">张紫奇</a>&nbsp;<a href="#">倪宝铎</a>&nbsp;<a href="#">范军</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="直播港澳台"><img alt="直播港澳台" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5iaci2kij203z05qglj.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="直播港澳台">直播港澳台</a>
+									<div class="goods_price"><span class="price_1">2012</span><span class="price_2"><a href="#">王浏芳</a>&nbsp;<a href="#">张美曦</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="档案（北京卫视）"><img alt="档案（北京卫视）" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5h6op4q3j204605kjra.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="档案（北京卫视）">档案（北京卫视）</a>
+									<div class="goods_price"><span class="price_1">2016</span><span class="price_2"><a href="#">石凉</a>&nbsp;<a href="#">赵立新</a>&nbsp;<a href="#">谭江海</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="大揭秘"><img alt="大揭秘" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5hxmv4lmj206e08it8u.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="大揭秘">大揭秘</a>
+									<div class="goods_price"><span class="price_1">2012</span><span class="price_2"><a href="#">姚安</a>&nbsp;<a href="#">马力</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="军情直播间"><img alt="军情直播间" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5iacsfisj203z05q74c.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="军情直播间">军情直播间</a>
+									<div class="goods_price"><span class="price_1">2012</span><span class="price_2"><a href="#">赵昊</a>&nbsp;<a href="#">张美曦</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="笑霸来了"><img alt="笑霸来了" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5hkbtmb7j203c04g0sp.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="笑霸来了">笑霸来了</a>
+									<div class="goods_price"><span class="price_1">2013</span><span class="price_2"><a href="#">未知</a>&nbsp;</span></div>
+					
+								</div>
+								
+								<div class="goods_item odd" data-gid="JD_11027333058">
+									<a href="#" target="_blank" class="goods_pic" title="海峡新干线"><img alt="海峡新干线" src="http://ww1.sinaimg.cn/mw690/7eb19fcdgy1fs5h6lammkj203z05r0sp.jpg"></a>
+									<a href="#" target="_blank" class="goods_name" title="海峡新干线">海峡新干线</a>
+									<div class="goods_price"><span class="price_1">2012</span><span class="price_2"><a href="#">艾珂竹</a>&nbsp;<a href="#">梁多</a>&nbsp;<a href="#">薛晗喆</a>&nbsp;</span></div>
+					
+								</div>
+								
+							</div>	
+						</div>
+	                </div>
+				</div>	
+			</div>	
+        </div>	
+	</div>	
+	<!--播放器下info-->  
+	<div class="player_headline cf">
+		<div class="mod_intro">
+			<div class="video_base _base">
+				<h1 class="video_title" title="如果，爱  第1集">
+				<a href="#">如果，爱</a>第1集
+				<span class="video_score">9.0</span>
+				</h1>
+			</div>
+			<div class="video_info_wrap">
+				<div class="video_info">
+					<div class="video_info_cell video_info_cell_2">
+						<div class="video_brief">
+							<span class="item"><span class="label">导演：</span><a href="#">杜若峰</a>&nbsp;&nbsp;</span>
+							<span class="item"><span class="label">主演：</span><a href="#">马涤尘</a>&nbsp;&nbsp;<a href="#">张向珉</a>&nbsp;&nbsp;<a href="#">王鹏程</a>&nbsp;&nbsp;<a href="#">曹安娜</a>&nbsp;&nbsp;<a href="#"></a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	         	
+</div>
+    </div>
+    <div class="picture">
+    </div>
+    <div class="show">
+    	<div class="content-wrap g-clear">
+        <div id="tj-pinglun" monitor-desc="剧情介绍" class="content-left">
+			<div class="data p-mod">
+				<div class="p-mod-title g-clear">
+					<span class="p-mod-label" id="jieshao">《如果，爱》剧情介绍</span>
+				</div>
+				<div class="content" style="background-color:#fff;">
+					<div style="margin:8px 15px; line-height:22px; font-size:14px">
+						由杜若峰执导，马涤尘 张向珉 王鹏程 曹安娜 等主演的剧情,偶像,青春,都市电视剧《<a href="#">如果，爱</a>》，此片于，此片讲述了传说中有一个罕见的天才，他苦心钻研数十年，终于悟出了世间除“金木水火土”五行之外的另一种元素-暗影元素。并创造了异常强大且恐怖的暗影笔。强大的力量趋使他开始恃强欺弱，且变得越发的凶残暴戾。自此，他自诩为“魔仙大王”并发展黑暗势力广纳仆从。力量的渴望，也驱使一些人走向了邪恶。黑暗势力的不断壮大已然对诗词世界构成了严重的威胁。权利的渴望趋势他们想要统治整个世界。原本在大李氏家族的统领下，维持了数百年平和的诗词世界，暗流涌动，人人自危，一场正义与邪恶的战争在所难免。剧集概览剧情讨论相关视频发布动态
+					</div>				
+                </div>				
+			</div>
+		</div>
+	</div>
+    <div class="content-wrap g-clear">
+        <div id="tj-pinglun" monitor-desc="网友评论" class="content-left">
+			<div class="data p-mod">
+				<div class="p-mod-title g-clear">
+					<span class="p-mod-label" id="jieshao">网友评论</span>
+				</div>
+				<div class="content" style="background-color:#fff;">
+					<div class="content-wrap">
+						<div id="SOHUCS" sid="20391"><div id="SOHU_MAIN"><div node-type="cy-collection-btn" class="cy-collection-btn"><i></i><span>收藏文章</span></div>
+<div class="module-cmt-header">
+    <div class="cy-hidden">
+        <button id="jump-to-kz"></button>
+    </div>
+    <div class="clear-g section-title-w">
+        <div class="title-user-w">
+            <div node-type="user" class="clear-g user-wrap-w">
+                <span node-type="user-name" class="wrap-name-w"></span>
+            </div>
+        </div>
+    </div>
+    <div class="section-cbox-w">
+        <div class="cbox-block-w clear-g">
+            <div node-type="block-head-w" class="block-head-w">
+                <div node-type="avatar" class="head-img-w">
+                    <a href="javascript:void(0);">
+                        <img node-type="user-head" src="https://changyan.sohu.com/upload/asset/scs/images/pic/pic42_null.gif" width="42" height="42" alt="">
+                        <div node-type="head-img-ie-mask" class="head-img-ie-mask"></div>
+                    </a>
+                    <div node-type="notice-node" style="display: none" class="cy-avatar-notice-node"></div>
+                                    </div>
+                <div node-type="header-login" class="header-login">登录</div>
+                <!-- <div class="cy-to-shequ-head">
+                   -     <span>我的社区</span>
+                   - </div> -->
+                <img node-type="header-skin" class="header-skin">
+                <div node-type="cy-hot-words" class="cy-hot-words"></div>
+            </div>
+            <div node-type="login-select" class="block-post-w">
+                <!-- 放置cbox初始状态 -->
+                <div class="module-cmt-box">
+    <!-- 展开状态 -->
+    <div class="post-wrap-w">
+        <div class="post-wrap-border-l"></div>
+        <div class="post-wrap-border-r"></div>
+        <div node-type="post-wrap-main" class="post-wrap-main">
+            <div class="post-wrap-border-t">
+                <div node-type="post-wrap-border-t-l" class="post-wrap-border-t-l"></div>
+                <div node-type="post-wrap-border-t-r" class="post-wrap-border-t-r"></div>
+            </div>
+            <div class="wrap-area-w">
+                <div class="area-textarea-w">
+                    <textarea node-type="textarea" name="" class="textarea-fw textarea-bf">有事没事说两句...</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="clear-g wrap-action-w">
+           <div class="action-function-w">
+                <ul class="clear-g">
+                    <li node-type="function-face" class="function-face-w">
+                        <a class="effect-w" href="javascript:void(0)">
+                            <i class="face-b"></i>
+                        </a>
+                    </li>
+                    <li node-type="function-uploading" class="function-uploading-w" style="display: none;">
+                        <a class="effect-w" href="javascript:void(0)" title="上传图片">
+                            <i class="uploading-b"></i>
+                        </a>
+                        <div class="uploading-file-w">
+                            <a href="javascript:void(0);" name="" class="file-fw"></a>
+                        </div>
+                    <form style="display: none;"><input name="file" type="file" accept="image/jpg,image/jpeg,image/png"></form></li>
+                </ul>
+                <!-- 表情 -->
+                <div node-type="face-box" class="face-wrapper-dw">
+                    <div node-type="face-cont" class="wrapper-cont-dw">
+                        <ul class="clear-g">
+                            <li>
+                                <span title="流汗" data_path="base" data-ubb="/流汗" class="face-item face_01"></span>
+                            </li>
+                            <li>
+                                <span title="钱" data_path="base" data-ubb="/钱" class="face-item face_02"></span>
+                            </li>
+                            <li>
+                                <span title="发怒" data_path="base" data-ubb="/发怒" class="face-item face_03"></span>
+                            </li>
+                            <li>
+                                <span title="浮云" data_path="base" data-ubb="/浮云" class="face-item face_04"></span>
+                            </li>
+                            <li>
+                                <span title="给力" data_path="base" data-ubb="/给力" class="face-item face_05"></span>
+                            </li>
+                            <li>
+                                <span title="大哭" data_path="base" data-ubb="/大哭" class="face-item face_06"></span>
+                            </li>
+                            <li>
+                                <span title="憨笑" data_path="base" data-ubb="/憨笑" class="face-item face_07"></span>
+                            </li>
+                            <li>
+                                <span title="色" data_path="base" data-ubb="/色" class="face-item face_08"></span>
+                            </li>
+                        </ul>
+                        <ul class="clear-g">
+                            <li>
+                                <span title="奋斗" data_path="base" data-ubb="/奋斗" class="face-item face_09"></span>
+                            </li>
+                            <li>
+                                <span title="鼓掌" data_path="base" data-ubb="/鼓掌" class="face-item face_10"></span>
+                            </li>
+                            <li>
+                                <span title="鄙视" data_path="base" data-ubb="/鄙视" class="face-item face_11"></span>
+                            </li>
+                            <li>
+                                <span title="可爱" data_path="base" data-ubb="/可爱" class="face-item face_12"></span>
+                            </li>
+                            <li>
+                                <span title="闭嘴" data_path="base" data-ubb="/闭嘴" class="face-item face_13"></span>
+                            </li>
+                            <li>
+                                <span title="疑问" data_path="base" data-ubb="/疑问" class="face-item face_14"></span>
+                            </li>
+                            <li>
+                                <span title="抓狂" data_path="base" data-ubb="/抓狂" class="face-item face_15"></span>
+                            </li>
+                            <li>
+                                <span title="惊讶" data_path="base" data-ubb="/惊讶" class="face-item face_16"></span>
+                            </li>
+                        </ul>
+                        <ul class="clear-g">
+                            <li>
+                                <span title="可怜" data_path="base" data-ubb="/可怜" class="face-item face_17"></span>
+                            </li>
+                            <li>
+                                <span title="弱" data_path="base" data-ubb="/弱" class="face-item face_18"></span>
+                            </li>
+                            <li>
+                                <span title="强" data_path="base" data-ubb="/强" class="face-item face_19"></span>
+                            </li>
+                            <li>
+                                <span title="握手" data_path="base" data-ubb="/握手" class="face-item face_20"></span>
+                            </li>
+                            <li>
+                                <span title="拳头" data_path="base" data-ubb="/拳头" class="face-item face_21"></span>
+                            </li>
+                            <li>
+                                <span title="酒" data_path="base" data-ubb="/酒" class="face-item face_22"></span>
+                            </li>
+                            <li>
+                                <span title="玫瑰" data_path="base" data-ubb="/玫瑰" class="face-item face_23"></span>
+                            </li>
+                            <li>
+                                <span title="打酱油" data_path="base" data-ubb="/打酱油" class="face-item face_24"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div node-type="user-face-cont" class="wrapper-user-face-dw nano">
+                        <div class="nano-content">
+                            <ul class="clear-g">
+                                <li class="upload-face-btn"></li>
+                                <li class="manage-face-btn"></li>
+                                <li class="cancel-face-btn"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div node-type="face-tab" class="action-face-tab-dw">
+                        <ul class="clear-g">
+                            <li node-type="official-face" class="official-face-btn active"></li>
+                            <li node-type="user-face" class="user-face-btn" style="display: none;"></li>
+                        </ul>
+                    </div>
+                    <div node-type="confirm-box" class="cy-confirm-box">
+                        <div class="cy-confirm-text">
+                            <span>表情删除后不可恢复，是否删除</span>
+                        </div>
+                        <div class="cy-confirm-btn-row">
+                            <div class="cy-confirm-btn-cancel">取消</div>
+                            <div class="cy-confirm-btn-confirm">确定</div>
+                        </div>
+                    </div>
+                </div>
+                <!--  上传图片 --><!--  uploading-efw -->
+                <div node-type="uploading-wrapper" class="uploading-wrapper-dw uploading-efw ">
+                    <div class="uploading-wrapper-dw-t"></div>
+                    <div class="uploading-wrapper-dw-b"></div>
+                    <div node-type="image-uploading" class="wrapper-loading-dw">
+                        <div class="loading-word-dw"><span class="word-icon-dw"></span>图片正在上传，请稍后...</div>
+                        <div class="loading-btn-dw">
+                            <a href="javascript:void(0)">取消上传</a>
+                        </div>
+                    </div>
+                    <div node-type="image-uploaded" class="wrapper-image-dw">
+                        <div class="image-close-dw">
+                            <a href="javascript:void(0)"></a>
+                        </div>
+                        <div class="image-pic-dw">
+                            <img node-type="image-pic" alt="" src="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear-g action-issue-w">
+                <div class="issue-btn-w">
+                    <a href="javascript:void(0)">
+                        <button node-type="issue" class="btn-fw"></button>
+                    </a>
+                </div>
+            <!--
+            <div class="issue-icon-w" node-type="share-icons">
+                </div>
+            -->
+            </div>
+            <div class="cbox-prompt-w" node-type="error-tips">
+                <span node-type="prompt-empty" class="prompt-empty-w">评论内容为空！</span>
+            </div>
+        </div>
+    </div>
+</div>
+                <!-- 放置cbox发布状态 -->
+                <!-- 提示条 -->
+                <!-- 零评论提示条 -->
+                <div class="list-comment-empty-w">
+                    <div node-type="empty-prompt" class="empty-prompt-w">
+                        <span class="prompt-null-w">还没有评论，快来抢沙发吧！</span>
+                    </div>
+                </div>
+                <!-- 提示连接到快站社区 -->
+                <!-- <div class="list-comment-kuaizhan-w">
+                    <div node-type="kuaizhan-prompt" class="kuaizhan-prompt-w">
+                        <span class="prompt-text-w">点击查看更多精彩内容</span>
+                    </div>
+                </div> -->
+                <!--关闭评论-->
+                <div class="list-close-comment-w">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- 评论列表  S -->
+<div node-type="module-cmt-list" class="module-cmt-list section-list-w">
+            <!-- 最新评论 -->
+    <div class="list-block-gw list-newest-w">
+        <div node-type="cmt-list-title" class="block-title-gw" style="display: none;">
+            <ul class="clear-g">
+                <li>
+                    <div class="title-name-gw title-name-bg">
+                    <div class="title-name-gw-tag"></div>最新评论</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 评论列表  E --><div class="module-cmt-footer">
+    <!-- 评论关闭 -->
+    <div class="list-comment-close-w">
+        <div class="close-wrap-w close-wrap-b">该评论已关闭!</div>
+    </div>
+    <!-- 翻页 -->
+    <div class="section-page-w">
+    </div>
+    <!-- 某站正在使用畅言 -->
+    <div class="section-service-w">
+        <div class="service-wrap-w">
+            <a href="#" target="_blank">
+            
+            本站正在使用畅言
+                        </a>
+        </div>
+    </div>
+    <div node-type="cy-to-shequ" class="cy-redirect-btn">
+        <span class="cy-redirect-text">去社区看看吧</span><i class="cy-right-arrow"></i>
+    </div>
+    <div node-type="cy-to-hots" class="cy-redirect-btn">
+        <span class="cy-redirect-text">去热评看看吧</span><i class="cy-right-arrow"></i>
+    </div>
+    <div class="cy-to-shequ-float"></div>
+</div><div class="module-cmt-notice">
+    <ul class="nt-list">
+        
+        <li node-type="notice-message" data-alias="message" data-type="message" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你收到<i>0</i>条新通知</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+        
+        <li node-type="notice-support" data-alias="support" data-type="support" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>条评论收到赞同</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+        
+        <li node-type="notice-reply" data-alias="reply" data-type="reply" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>条新回复</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+        
+        <li node-type="notice-hots" data-alias="hots" data-type="hots" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">本日畅言热评新鲜出炉啦！</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+        
+        <li node-type="notice-task" data-alias="task" data-type="task" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>个任务已完成</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+        
+        <li node-type="notice-history" data-alias="history" data-type="history" data-static="static" class="nt-item" style=" display: none ">
+            <div class="nt-logo"></div>
+            <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你收获<i>0</i>个畅言足迹</a>
+            <a class="nt-close" href="javascript:void(0);"></a>
+        </li>
+            </ul>
+</div></div></div>
+					</div>
+				</div>				
+			</div>		
+        </div>
+	</div>
+    </div>
+</div>
+<!-- 回到顶部功能栏 -->
+<div class="toolbar">
+   		<a href="#" class="toolbar-item toolbar-item-weixin">
+   		<span class="toolbar-layer"></span>
+   		</a>
+   		<a href="#" class="toolbar-item toolbar-item-feedback"></a>
+   		<a href="#" class="toolbar-item toolbar-item-app">
+    	<span class="toolbar-layer"></span>
+   		</a>
+   		<a href="javascript:scroll(0,0)" id="top" class="toolbar-item toolbar-item-top"></a>
+</div>
+<!-- 尾部信息 -->
+<div class="foot">
+    <div class="layout">
+           <div class="foot-nav">   
+           <a href="#" target="_blank" title="使用帮助">使用帮助</a>-<a href="#" target="_blank" title="给我留言">给我留言</a>-<a href="#" target="_blank" title="最新更新">最新更新</a>
+			</div>
+			<div class="copyright">
+				<p>本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传</p>
+				<p>若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢！</p>
+				<p>Copyright © 2016-2017 <a href="#">洋葱影视www.XXX.com</a> All Rights Reserved. </p>
+			</div>		
+	</div>
+</div>
+</body>
+</html>

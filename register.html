@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>欢迎注册</title>
+<style>
+body{background-color:#eee;margin:0;padding:0;}
+.reg{width:1000px;height:500px;margin:100px auto;padding:20px;border:1px solid #ccc;background-color:#fff;}
+.reg .title{text-align:center;padding-bottom:10px;}
+.reg th{font-weight:normal;text-align:right;}
+.reg input{width:180px;border:1px solid #ccc;height:20px;padding-left:4px;}
+.reg .button{background-color:#0099ff;border:1px solid #0099ff;color:#fff;width:80px;height:25px;margin:0 5px;cursor:pointer;}
+.reg .td-btn{text-align:center;padding-top:10px;}
+#box{width:1431px; height:680px; margin:20px auto;
+
+
+
+</style>
+<script>	
+	//检查两次输入密码是否一致
+	function checkForm(){
+		var pw1 = document.getElementById("pw1").value;
+		var pw2 = document.getElementById("pw2").value;
+		if(pw1 !== pw2){
+			alert('两次输入密码不一致！');
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+<div id='box'>
+<form method="post" action="register.php" onsubmit="return checkForm()" >
+<table class="reg">
+	<tr><td class="title" colspan="2">欢迎注册新用户</td></tr>
+	<div id='liebiao'>
+	<tr><th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户名：</th><td><input type="text" name="username" /></td></tr>
+	<tr><th> 邮箱：</th><td><input type="text" name="email" /></td></tr>
+	<tr><th> 密码：</th><td><input type="password" name="password" id="pw1" /></td></tr>
+	<tr><th> 确认密码：</th><td><input type="password" id="pw2" /></td></tr>
+	</div>
+	<tr><td colspan="2" class="td-btn">
+	<div id='button'>
+	<input type="submit" value="提交注册" class="button" />
+	<input type="reset" value="重新填写" class="button" />
+	</div>
+	</td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>

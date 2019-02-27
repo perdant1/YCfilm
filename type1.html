@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>电影分类</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/shutter.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/search-form.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/shutter.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="src/jquery.bootstrap-autohidingnavbar.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/scripts.js"></script>
+</head>
+
+<body>
+<!-- 头部 -->
+<div class="head">
+	<div class="head_top">
+    	<!-- 导航栏 -->
+        <div class="navigation">
+        	<nav class="navbar navbar-default navbar-fixed-top ">
+    		<div class="container">
+				<ul class="menu">
+					<li><a href="index.html">首页</a></li>
+					<li class="active"><a href="type1.html">电影</a>
+						<ul class="submenu">
+						<li><a href="#">喜剧</a></li>
+						<li><a href="#">科幻</a></li>
+						<li><a href="#">动作</a></li>
+                		<li><a href="#">恐怖</a></li>
+						</ul>
+					</li>
+					<li><a href="#">电视剧</a>
+						<ul class="submenu">
+							<li><a href="#">警匪</a></li>
+							<li><a href="#">悬疑</a></li>
+							<li><a href="#">古装</a></li>
+							<li><a href="#">军旅</a></li>
+						</ul>
+					</li>
+					<li><a href="#">综艺</a>
+        				<ul class="submenu">
+							<li><a href="#">真人秀</a></li>
+							<li><a href="#">美食</a></li>
+							<li><a href="#">情感</a></li>
+							<li><a href="#">生活</a></li>
+						</ul>
+        			</li>
+					<li><a href="#">动漫</a>
+        				<ul class="submenu">
+							<li><a href="#">热血</a></li>
+							<li><a href="#">冒险</a></li>
+							<li><a href="#">校园</a></li>
+						</ul>
+        			</li>
+        			<li><a href="#">关于本站</a></li>
+                    <!-- 搜索框 -->
+                    <div class="search">
+    		<form onsubmit="submitFn(this, event);">
+				<div class="search-wrapper">
+					<div class="input-holder">
+						<input type="text" class="search-input" placeholder="Type to search" />
+						<button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+					</div>
+					<span class="close" onclick="searchToggle(this, event);">
+    				</span>
+					<div class="result-container">
+					</div>
+				</div>
+			</form>
+			<script type="text/javascript">
+        		function searchToggle(obj, evt){
+            	var container = $(obj).closest('.search-wrapper');
+
+            		if(!container.hasClass('active')){
+                 	 container.addClass('active');
+                  	 evt.preventDefault();
+           			}
+           			else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                  	 container.removeClass('active');
+                  	 // clear input
+                  	 container.find('.search-input').val('');
+                  	 // clear and hide result container when we press close
+                  	 container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+            		}
+       		 	}
+
+        		function submitFn(obj, evt){
+            value = $(obj).find('.search-input').val().trim();
+
+            _html = "Yup yup! Your search text sounds like this: ";
+            if(!value.length){
+                _html = "Yup yup! Add some text friend :D";
+            }
+            else{
+                _html += "<b>" + value + "</b>";
+            }
+
+            $(obj).find('.result-container').html('<span>' + _html + '</span>');
+            $(obj).find('.result-container').fadeIn(100);
+
+            evt.preventDefault();
+        	}
+    		</script>
+        </div>
+				</ul>
+			</div>
+            </nav>
+            <!-- 变化导航 -->
+        	<script>
+	  			$(".navbar-fixed-top").autoHidingNavbar();
+			</script>
+        </div>
+    </div>
+    <div class="head_foot">
+        <!-- 图标 -->
+    	<div class="logo_box">
+        	<img src="images/logo.gif">
+        </div>
+        <div class="logo_box2">
+            <img src="images/logo2.jpg">
+        </div>
+        <!-- 注册登录 -->
+        <div class="register">
+        	<div class="user-behavior" areacode="head">
+              <div class="login-con" id="js-login-h">
+                <div class="js-login-d">
+                    <span class="login-register"><a data-type="login" href="javascript:void(0);" class="login-icon"></a><a data-type="login" href="javascript:void(0);" class="btn btn-link-1 launch-modal" data-modal-id="modal-register">登录</a></span>
+                    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        				</button>
+        				<h3 class="modal-title" id="modal-register-label">用户登录</h3>
+        			</div>
+        			
+        			<div class="modal-body">
+	                   <form action="checkLogin.php" method="post">
+	<fieldset>
+		<ul>
+			<li>
+				<label for="">用户名：</label> 
+				<input type="text" name="username"/>
+			</li>
+			<li>
+				<label for="">密 码：</label> 
+				<input type="password" name="password" />
+			</li>
+			<li>
+				<label for="">验证码：</label> 
+				<input type="text" name="captcha" /><br>
+				<img src="code.php" alt="" id="code_img"/> <br> 
+				<a href="#" id="change">看不清，换一张</a>
+			</li>
+			<li>
+				<label for="">&nbsp;</label> 
+				<input type="submit" value="登 录" class="login_btn" />
+                <a href="register.html" target="_blank"><input type="button" value="注 册" class="register_btn" /></a>
+			</li>
+		</ul>
+	</fieldset>		
+	</form>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </div>   
+                </div>
+              </div>
+                 <a id="viewFavoriteButton" class="tit collection" href="javascript:void(0);">收藏</a><a id="viewRecordButton" class="tit viewed" href="javascript:void(0);">看过</a>
+              <!--观看记录 start-->
+              <div style="display:none;" class="hoverBox" id="viewRecordPane">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"> <em class="hoverBox-arrow01"></em>
+                      <div class="his-none" style="display:block;">
+                        <p class="his-none-text">暂时没有您的观看记录</p>
+                        <p class="his-none-tips">您喜欢的影片在这里</p>
+                        <p class="his-none-more"><a target="_blank" href="#" rel="nofollow">点击去看</a></p>
+                      </div>
+                      <div class="his-main" style="display:none;">
+                        <p class="hoverBox-tit">看过</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont his-newcont"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--观看记录面板end-->
+              <!--收藏记录面板start-->
+              <div style="display: none;" class="hoverBox" id="viewFavoritePanel">
+                <div class="innerBox">
+                  <div class="menuHolder"> <span class="hoverBox-shadow"></span>
+                    <div class="frame"><em class="hoverBox-arrow02"></em>
+                      <div class="his-none" style="">
+                        <p class="his-none-text">您的列表中暂时没有内容</p>
+                        <p class="his-none-pic"></p>
+                        <p class="his-none-more his-none-more-collection"><a target="_blank" href="#" rel="nofollow">您喜欢的影片在这里</a></p>
+                      </div>
+                      <div class="his-main" style="display: none;">
+                        <p class="hoverBox-tit">收藏</p>
+                        <p class="his-op"><a class="empty" href="javascript:void(0);">清空记录</a></p>
+                        <div class="his-cont" areacode="collect"><ul class="clearfix"></ul></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--收藏记录面板end-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容展示 -->
+<div class="middle">
+	<div class="screen">
+    	<div class="warp">
+            <div class="focusbox">
+                <div class="scrollimg">
+    <div id="List_lunbo_0" style="position: absolute; display: none;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/84/84597.shtml" blockid="4821"><img src="http://i7.kanimg.kankan.com/gallery2/block/2015/08/19/af10b4cd95db7d2d5325ea116fb50067.jpg" width="707" height="318" title="饥饿游戏3:嘲笑鸟(上)"></a>
+               <h3><a href="http://vod.kankan.com/v/84/84597.shtml" blockid="4821">饥饿游戏3:嘲笑鸟(上)</a></h3>
+               <p>嘲笑鸟觉醒 反抗军爆发革命</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+    <div id="List_lunbo_1" style="position: absolute; display: none;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/61/61425.shtml" blockid="4821"><img src="http://i1.kanimg.kankan.com/gallery2/block/2015/01/19/3974ef04f6dc0d895592507a2edaff3f.jpg" width="707" height="318" title="铁血精英"></a>
+               <h3><a href="http://vod.kankan.com/v/61/61425.shtml" blockid="4821">铁血精英</a></h3>
+               <p>斯坦森火爆动作片 跨国特工大对决</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+    <div id="List_lunbo_2" style="position: absolute; display: none;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/67/67327.shtml" blockid="4821"><img src="http://i9.kanimg.kankan.com/gallery2/block/2015/01/19/6d6b9357a059bb321f301f30521085f8.jpg" width="707" height="318" title="天使的性"></a>
+               <h3><a href="http://vod.kankan.com/v/67/67327.shtml" blockid="4821">天使的性</a></h3>
+               <p>颠覆三观！西班牙前卫男女情爱三人行</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+    <div id="List_lunbo_3" style="position: absolute; display: none;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/84/84894.shtml" blockid="4821"><img src="http://i3.kanimg.kankan.com/gallery2/block/2015/02/05/923d81dc0caa950bafc758155526c49f.jpg" width="707" height="318" title="狂怒"></a>
+               <h3><a href="http://vod.kankan.com/v/84/84894.shtml" blockid="4821">狂怒</a></h3>
+               <p>布拉德皮特领衔虎豹兄弟连 真·坦克无双横扫二战修罗杀场</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+    <div id="List_lunbo_4" style="position: absolute; display: none;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/9/9763.shtml" blockid="4821"><img src="http://i2.kanimg.kankan.com/gallery2/block/2014/12/15/51986163e39b6814d971493800979e1a.jpg" width="707" height="318" title="防弹武僧"></a>
+               <h3><a href="http://vod.kankan.com/v/9/9763.shtml" blockid="4821">防弹武僧</a></h3>
+               <p>周润发好莱坞作品中国武僧打爆美帝恶棍</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+    <div id="List_lunbo_5" style="position: absolute;">
+          <div class="scrollimg_div" onmouseover="try{clearInterval(lunbo_int)}catch(e){}" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)">
+               <a href="http://vod.kankan.com/v/86/86499.shtml" blockid="4821"><img src="http://i6.kanimg.kankan.com/gallery2/block/2015/03/16/e803ca4dd50a2d2b4cacde49cf363c49.jpg" width="707" height="318" title="前目的地"></a>
+               <h3><a href="http://vod.kankan.com/v/86/86499.shtml" blockid="4821">前目的地</a></h3>
+               <p>史上最强穿越科幻小说改编 无限轮回的宿命</p>
+               <div class="bg"></div>
+          </div>
+    </div>
+</div>
+<div class="scrollimg_tigger_box">
+    <ul class="scrollimg_tigger">
+	        <li><a id="Tab_lunbo_0" href="http://vod.kankan.com/v/84/84597.shtml" class="pic" onmouseover="switchTab2('lunbo',0,6,'pic on','pic');lunbo_index=0;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://i0.kanimg.kankan.com/gallery2/block/2015/08/19/943b9a72b8402b805f274504ae5908a6.jpg" width="108" height="84" title="饥饿游戏3:嘲笑鸟(上)"><span class="txt">高清版</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	        <li><a id="Tab_lunbo_1" href="http://vod.kankan.com/v/61/61425.shtml" class="pic" onmouseover="switchTab2('lunbo',1,6,'pic on','pic');lunbo_index=1;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://i7.kanimg.kankan.com/gallery2/block/2015/01/19/21eb7c2bed7f4c2615bfe54268d3500e.jpg" width="108" height="84" title="铁血精英"><span class="txt">火爆枪战</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	        <li><a id="Tab_lunbo_2" href="http://vod.kankan.com/v/67/67327.shtml" class="pic" onmouseover="switchTab2('lunbo',2,6,'pic on','pic');lunbo_index=2;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://i5.kanimg.kankan.com/gallery2/block/2015/01/19/3b3d51e19870943865fb2c4ef9735a1f.jpg" width="108" height="84" title="天使的性"><span class="txt">情爱伦理</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	        <li><a id="Tab_lunbo_3" href="http://vod.kankan.com/v/84/84894.shtml" class="pic" onmouseover="switchTab2('lunbo',3,6,'pic on','pic');lunbo_index=3;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://i8.kanimg.kankan.com/gallery2/block/2015/02/05/5a4a5a6b00dbfdf86ae3cb8f6bdfc9a0.jpg" width="108" height="84" title="狂怒"><span class="txt">战争巨制</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	        <li><a id="Tab_lunbo_4" href="http://vod.kankan.com/v/9/9763.shtml" class="pic" onmouseover="switchTab2('lunbo',4,6,'pic on','pic');lunbo_index=4;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://img2.kanimg.kankan.com//gallery2/block/2014/12/15/27957ab4721bc95ce39f6722cccf9084.jpg" width="108" height="84" title="防弹武僧"><span class="txt">动作大片</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	        <li><a id="Tab_lunbo_5" href="http://vod.kankan.com/v/86/86499.shtml" class="pic on" onmouseover="switchTab2('lunbo',5,6,'pic on','pic');lunbo_index=5;try{clearInterval(lunbo_int)}catch(e){};" onmouseout="lunbo_int=setInterval(function(){lunbo_next()},6000)" blockid="4821"><img src="http://i7.kanimg.kankan.com/gallery2/block/2015/03/16/bca36716cb20064f699689f3ef020943.jpg" width="108" height="84" title="前目的地"><span class="txt">时间特工</span><span class="txt_bg"></span><span class="mask"></span></a></li>
+	    </ul>
+</div>
+<script>
+var lunbo_index=0;
+var lunbo_int=false;
+function lunbo_next(){
+	if(lunbo_index<5){
+		lunbo_index++;
+	}else{
+		lunbo_index=0;
+	}
+	switchTab2('lunbo',lunbo_index,6,'pic on','pic');
+}
+lunbo_int=setInterval(function(){lunbo_next()},6000)
+</script>
+            </div>
+        </div>
+    </div>
+    <div class="picture">
+    </div>
+    <div class="show">
+    </div>
+</div>
+<!-- 尾部信息 -->
+<div class="foot">
+    <div class="layout">
+           <div class="foot-nav">   
+           <a href="#" target="_blank" title="使用帮助">使用帮助</a>-<a href="#" target="_blank" title="给我留言">给我留言</a>-<a href="#" target="_blank" title="最新更新">最新更新</a>
+			</div>
+			<div class="copyright">
+				<p>本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传</p>
+				<p>若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信，我们会及时处理和回复，谢谢！</p>
+				<p>Copyright © 2016-2017 <a href="#">洋葱影视www.XXX.com</a> All Rights Reserved. </p>
+			</div>		
+	</div>
+</div>
+</body>
+</html>
